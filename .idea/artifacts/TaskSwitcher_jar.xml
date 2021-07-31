@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TaskSwitcher:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TaskSwitcher_jar</output-path>
+    <root id="archive" name="TaskSwitcher.jar">
+      <element id="module-output" name="Jomato" />
+    </root>
+  </artifact>
+</component>
