@@ -1,4 +1,4 @@
-#Jomato
+# Jomato
 
 ![logo](src/img/logo.png "Screenshot")
 
