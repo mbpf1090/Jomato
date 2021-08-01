@@ -6,7 +6,7 @@ public class CounterState implements JomatoState, Breakable {
 
     private final PomodoroTray tray;
     private final PomodoroTimer pomodoroTimer;
-    private int session = 1;
+    private final int session = 1;
     private JTimer jTimer;
 
     public JTimer getTimer() {

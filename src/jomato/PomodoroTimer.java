@@ -6,7 +6,7 @@ import jomato.states.NormalState;
 public class PomodoroTimer {
 
     // Fields
-    private PomodoroTray trayController;
+    private final PomodoroTray trayController;
     public static int session = 1;
 
     private JomatoState state;

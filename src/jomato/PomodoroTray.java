@@ -13,7 +13,7 @@ public class PomodoroTray {
     public MenuItem quitItem;
     public MenuItem pauseItem;
     public MenuItem settingsItem;
-    private Preferences preferences;
+    private final Preferences preferences;
 
     public Settings settings;
 

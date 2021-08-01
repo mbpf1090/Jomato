@@ -7,7 +7,7 @@ import jomato.PomodoroTray;
 
 public class BreakState implements JomatoState {
 
-    private JomatoState prevState;
+    private final JomatoState prevState;
     private final PomodoroTray tray;
     private final PomodoroTimer pomodoroTimer;
 

@@ -7,8 +7,8 @@ public class JTimer {
 
     private static JTimer jTimer;
     private Timer timer;
-    private PomodoroTray tray;
-    private PomodoroTimer pomodoroTimer;
+    private final PomodoroTray tray;
+    private final PomodoroTimer pomodoroTimer;
 
     private int durationState = 0;
     private boolean pauseState;
