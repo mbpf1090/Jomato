@@ -19,6 +19,7 @@ public class NormalState implements JomatoState {
     public void initialize() {
         tray.stopItem.setEnabled(false);
         tray.startItem.setLabel("Start Timer");
+        tray.pauseItem.setLabel("Pause");
         tray.startItem.setEnabled(true);
         PomodoroTimer.session = 1;
     }
@@ -36,10 +37,5 @@ public class NormalState implements JomatoState {
     @Override
     public void stop(PomodoroTimer timer) {
 
-    }
-
-    @Override
-    public String getStateName() {
-        return "NormalState";
     }
 }

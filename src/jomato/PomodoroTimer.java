@@ -1,18 +1,14 @@
 package jomato;
 
+import jomato.states.BreakState;
 import jomato.states.NormalState;
-import java.util.Timer;
 
 public class PomodoroTimer {
 
     // Fields
-    private Timer timer;
     private PomodoroTray trayController;
     public static int session = 1;
-    public static final int TIMER_DURATION = 10;
-    public static final int PAUSE_DURATION = 5;
-    private boolean isRunning = false;
-    private boolean isPause = false;
+
     private JomatoState state;
 
     // Constructor
@@ -51,5 +47,12 @@ public class PomodoroTimer {
     }
 
     public void pauseSession() {
+        if (state instanceof Breakable) {
+            trayController.pauseItem.setLabel("Resume");
+            state = new BreakState(state, trayController, this);
+        } else {
+            trayController.pauseItem.setLabel("Pause");
+            prevState();
+        }
     }
 }

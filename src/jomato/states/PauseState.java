@@ -22,11 +22,12 @@ public class PauseState implements JomatoState {
 
     @Override
     public void initialize() {
+        tray.pauseItem.setEnabled(false);
     }
 
     @Override
     public void next(PomodoroTimer timer) {
-        if (tray.settings.isNotifications()) tray.trayIcon.displayMessage("Gambate!", "Do your best in 25!", TrayIcon.MessageType.INFO);
+        tray.showNotification(Message.PAUSE);
         timer.setState(new CounterState(tray, timer));
     }
 
@@ -39,10 +40,5 @@ public class PauseState implements JomatoState {
     public void stop(PomodoroTimer timer) {
         jTimer.stopTimer();
         timer.setState(new NormalState(tray, timer));
-    }
-
-    @Override
-    public String getStateName() {
-        return "PauseState";
     }
 }

@@ -10,6 +10,9 @@ public class JTimer {
     private PomodoroTray tray;
     private PomodoroTimer pomodoroTimer;
 
+    private int durationState = 0;
+    private boolean pauseState;
+
     private JTimer(PomodoroTray tray, PomodoroTimer pomodoroTimer) {
         this.tray = tray;
         this.pomodoroTimer = pomodoroTimer;
@@ -25,6 +28,7 @@ public class JTimer {
 
     public void startTimer(int duration, boolean pause) {
         this.timer = new Timer();
+        pauseState = pause;
         TimerTask task = new TimerTask() {
             int counter = duration;
             @Override
@@ -39,6 +43,7 @@ public class JTimer {
                 }
 
                 tray.startItem.setLabel(time);
+                durationState = counter;
                 if (counter <= 0) {
                     timer.cancel();
                     if (!pause) PomodoroTimer.session++;
@@ -57,6 +62,10 @@ public class JTimer {
     }
 
     public void pauseTimer() {
+        timer.cancel();
+    }
 
+    public void resumeTimer() {
+        startTimer(durationState, pauseState);
     }
 }

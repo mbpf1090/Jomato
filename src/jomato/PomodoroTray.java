@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.prefs.Preferences;
-import java.util.prefs.PreferencesFactory;
 
 public class PomodoroTray {
 
@@ -70,6 +69,7 @@ public class PomodoroTray {
         quitItem.addActionListener(quitListener);
         startItem.addActionListener(startListener);
         stopItem.addActionListener(stopListener);
+        pauseItem.addActionListener(pauseListener);
         settingsItem.addActionListener(settingsListener);
 
         trayIcon.setPopupMenu(popup);
@@ -78,6 +78,22 @@ public class PomodoroTray {
             tray.add(trayIcon);
         } catch (AWTException e) {
             System.out.println("TrayIcon could not be added.");
+        }
+    }
+
+    public void showNotification(Message msg) {
+        if (!settings.isNotifications()) return;
+        switch (msg) {
+            case PAUSE:
+                trayIcon.displayMessage("Gambate!", "Do your best in 25!", TrayIcon.MessageType.INFO);
+                break;
+            case END:
+                trayIcon.displayMessage("That's a wrap!", "Great job!", TrayIcon.MessageType.INFO);
+                break;
+            case SESSION:
+                trayIcon.displayMessage("Sessions done", "Time to chill!", TrayIcon.MessageType.INFO);
+                break;
+            default:
         }
     }
 
