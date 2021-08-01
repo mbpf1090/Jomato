@@ -1,7 +1,6 @@
 package jomato.states;
 
 import jomato.*;
-import java.awt.*;
 
 public class CounterState implements JomatoState, Breakable {
 

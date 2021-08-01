@@ -1,7 +1,7 @@
 package jomato.states;
 
 import jomato.*;
-import java.awt.*;
+
 public class PauseState implements JomatoState {
 
     private final PomodoroTray tray;
